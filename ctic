@@ -1,0 +1,466 @@
+#include<stdio.h>
+#include<conio.h>
+char b[3][3];
+int intro()
+{
+	int i,j;
+	printf("\n\n\n\n>>>>>>>>>>>>>>>>>>>{_____________    Game    ____________}<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	printf("\t\t    CAUTION YOU ARE PLAING AGAINST COMPUTER\n");
+	printf("\tOk for introductory purpose the name of the boxes are\n");
+	for(i=1;i<4;i++)
+	{
+		for(j=1;j<4;j++)
+			printf("%d%d\t",i,j);
+		printf("\n");
+		printf("\n");
+	}
+	printf("its 11 = eleven not one one\n");
+	printf("\n");
+	printf("________________________ 'it has started' __________________________\n");
+	printf("<<<<<<<<<<<<<        with my move on 11          >>>>>>>>>>>>>>>>>>>>>\n");
+	return 0;
+}
+int outp()
+{	
+	int i,j;
+	printf("\n\n\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+			printf("%c\t",b[i][j]);
+		printf("\n");
+		printf("\n");
+	}
+}
+int entbox(int n)
+{	
+		int a,c;
+		a=n/10;
+		a--;
+		c=n%10;
+		c--;
+		b[a][c]=79;
+		printf("\n");
+}
+int spcasg()
+{	
+	int i,j;
+	for(i=0;i<3;i++)
+		{
+			for(j=0;j<3;j++)
+			{ 
+				b[i][j]==32;
+			}
+		}
+		b[0][0]=88;
+}
+int display()
+{			
+			int n;
+			outp();
+			printf("Enter The Box No :");
+			scanf("%d",&n);
+			entbox(n);
+			outp();
+			return n;
+}
+void win()
+{
+	outp();		
+	printf("\nGood Played.\nTry again next Time\nTo Win\n");
+}
+void draw()
+{
+	outp();
+	printf("Good Play. I loved to play with you.\nIts a Draw\n\n ");
+}
+int main()
+{
+		int n;
+		intro();
+		spcasg();
+		n=display();
+		switch(n)
+		{
+		    case 12:
+				b[1][1]=88;
+				n=display();
+				if(n!=33)
+				{
+					b[2][2]=88;
+					win();
+					break;
+				}
+				else
+				{
+					b[2][0]=88;
+					n=display();
+					if(n==21)
+					{
+						b[0][2]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[1][0]=88;
+						win();
+						break;
+					}
+				}
+				
+			case 21:
+				b[1][1]=88;
+				n=display();
+				if(n!=33)
+				{
+					b[2][2]=88;
+					win();
+					break;
+				}
+				else
+				{
+					b[0][2]=88;
+					n=display();
+					if(n==12)
+					{
+						b[2][0]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[0][1]=88;
+						win();
+						break;
+					}
+				}
+			case 31:
+				b[2][2]=88;
+				n=display();
+				if(n!=22)
+				{
+					b[1][1]=88;
+					win();
+					break;
+				}
+				else
+				{
+					b[0][2]=88;
+					n=display();
+					if(n==12)
+					{
+						b[1][2]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[0][1]=88;
+						win();
+						break; 
+					}
+				}
+			case 13:
+				b[2][2]=88;
+				n=display();
+				if(n!=22)
+				{
+					b[1][1]=88;
+					win();
+					break;
+				}
+				else
+				{
+					b[2][0]=88;
+					n=display();
+					if(n==21)
+					{
+						b[2][1]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[1][0]=88;
+						win();
+						break;
+					}
+				}
+			case 23:
+				b[1][1]=88;
+				n=display();
+				if(n!=33)
+				{
+					b[2][2]=88;
+					win();
+					break;
+				}
+				else
+				{
+					b[0][2]=88;
+					n=display();
+					if(n==12)
+					{
+						b[2][0]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[0][1]=88;
+						win();
+						break;
+					}
+				}
+			case 32:
+				b[1][1]=88;
+				n=display();
+				if(n!=33)
+				{
+					b[2][2]=88;
+					win();
+					break;
+				}
+				else
+				{
+					b[2][0]=88;
+					n=display();
+					if(n==21)
+					{
+						b[0][2]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[1][0]=88;
+						win();
+						break;
+					}
+				}
+			case 33:
+				b[0][2]=88;
+				n=display();
+				if(n!=12)
+				{
+					b[0][1]=88;
+					win();
+					break;
+				}
+				else
+				{
+					b[2][0]=88;
+					n=display();
+					if(n==21)
+					{
+						b[1][1]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[1][0]=88;
+						win();
+						break;
+					}
+				}
+			case 22:
+				b[1][2]=88;
+				n=display();
+				switch(n)
+				{	
+				case 31:
+				 {
+					b[0][2]=88;
+					n=display();					
+					if(n==12)
+					{
+						b[2][2]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[0][1]=88;
+						win();
+						break;
+					}
+				 }
+				case 21:
+					b[0][2]=88;
+					n=display();				
+					if(n==12)
+					{
+						b[2][2]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[0][1]=88;
+						win();
+						break;
+					}
+				case 13:
+				{
+					b[2][0]=88;
+					n=display();				
+					if(n!=21)
+					{
+						b[1][0]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[2][2]=88;
+						n=display();				
+						if(n==12)
+						{
+							b[2][1]=88;
+							draw();
+							break;
+						}
+						else
+						{	
+							b[0][1]=88;
+							draw();
+							break;
+						}
+					}
+				case 32:
+				{
+					b[0][1]=88;
+					n=display();				
+					if(n!=13)
+					{
+						b[0][2]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[2][0]=88;
+						n=display();				
+						if(n==21)
+						{
+							b[2][2]=88;
+							win();
+							break;
+						}
+						else
+						{	
+							b[1][0]=88;
+							draw();
+							break;
+						}
+					}
+				case 33:
+				{
+					b[2][0]=88;
+					n=display();				
+					if(n!=21)
+					{
+						b[1][0]=88;
+						win();
+						break;
+					}
+					else
+					{	
+						b[0][2]=88;
+						n=display();					
+						if(n==12)
+						{
+							b[2][1]=88;
+							draw();
+							break;
+						}
+						else
+						{	
+							b[0][1]=88;
+							win();
+							break;
+						}
+					}
+
+				}
+				case 12:
+					b[2][1]=88;
+					n=display();
+					switch(n)
+					{
+						case 13:			
+							b[2][0]=88;
+							n=display();
+							if(n==21)
+							{
+								b[2][2]=88;
+								win();
+								break;
+							}
+							else
+							{	
+								b[1][0]=88;
+								win();
+								break;
+							}
+						case 21:						
+							b[2][2]=88;
+							n=display();
+							if(n==13)
+							{
+								b[2][0]=88;
+								win();
+								break;
+							}
+							else
+							{	
+								b[0][2]=88;
+								win();
+								break;
+							}
+						case 31:				
+							b[0][2]=88;
+							n=display();
+							if(n==21)
+							{
+								b[2][2]=88;
+								win();
+								break;
+							}
+							else
+							{	
+								b[1][0]=88;
+								draw();
+								break;
+							}
+						case 33:				
+						{
+							b[2][0]=88;
+							n=display();
+							if(n==13)
+							{
+								b[1][0]=88;
+								win();
+								break;
+							}
+							else
+							{	
+								b[0][2]=88;
+								draw();
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+		printf("\n\n\n\n\n\n");
+		printf("______________________________        credits        ____________________________________\n");
+		printf("\t<<<<<<<***** 	Code and idea ------->  by manish     *****>>>>>>>>>>\n");
+		printf("\t<<<<<<<<<<<    Helped by------->  Sanskar         >>>>>>>>>>>>>>\n");
+		printf("\t<<<<<<<<<<<    Special thanks to sanskar          >>>>>>>>>>>>>>\n\n\n\n\n");
+		getch();
+}
